@@ -2,8 +2,12 @@ package com.example.a25c992e3a3b6ce9eeb00901b1988403d
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.retrofit.RetrofitService
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private var binding: ActivityMainBinding? = null
 

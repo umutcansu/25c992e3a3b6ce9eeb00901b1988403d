@@ -1,4 +1,4 @@
-package com.example.a25c992e3a3b6ce9eeb00901b1988403d.base
+package com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.BR
+
 
 abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment() {
     private var _binding: T? = null

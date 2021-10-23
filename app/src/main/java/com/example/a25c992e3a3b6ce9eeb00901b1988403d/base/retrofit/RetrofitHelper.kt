@@ -32,13 +32,14 @@ object RetrofitHelper
             return retrofit
         }
 
-    val Call : RetrofitService?
+
+    val Call : RetrofitService
         get()
         {
             if(service == null)
                 service =  Client!!.create(
                     RetrofitService::class.java)
 
-            return service
+            return service!!
         }
 }
