@@ -9,13 +9,15 @@ import androidx.fragment.app.Fragment
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.BR
 
 abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment() {
+    private var _binding: T? = null
     protected lateinit var mRootView: View
-    protected lateinit var mBinding: T
+    protected val mBinding: T
+        get() = _binding!!
     protected lateinit var mViewModel: V
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         mViewModel = getViewModel()
-        mBinding = getBinding()
+        _binding = getBinding()
         mRootView = mBinding.root
         return mRootView
     }
@@ -26,6 +28,11 @@ abstract class BaseFragment<T : ViewDataBinding, V : BaseViewModel> : Fragment()
         mBinding.lifecycleOwner = this
         mBinding.executePendingBindings()
         initUI()
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     open fun initUI(){

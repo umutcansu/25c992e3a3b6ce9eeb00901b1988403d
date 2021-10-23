@@ -8,11 +8,11 @@
     <fragment
         android:id="@+id/spaceStationFragment"
         android:name="com.example.a25c992e3a3b6ce9eeb00901b1988403d.ui.station.SpaceStationFragment"
-        android:label="fragment_space_station"
+        android:label="@string/station"
         tools:layout="@layout/fragment_space_station" />
     <fragment
         android:id="@+id/favoriteSpaceStationFragment"
         android:name="com.example.a25c992e3a3b6ce9eeb00901b1988403d.ui.station.FavoriteSpaceStationFragment"
-        android:label="fragment_favorite_space_station"
+        android:label="@string/favorite"
         tools:layout="@layout/fragment_favorite_space_station" />
 </navigation>

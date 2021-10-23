@@ -24,6 +24,8 @@ class CreateSpaceShuttleFragment : BaseFragment<FragmentCreateSpaceShuttleBindin
     }
 
     private fun navigate(){
-        findNavController().navigate(R.id.action_createSpaceShuttleFragment_to_stationMainFragment)
+        findNavController().apply {
+            navigate(R.id.action_createSpaceShuttleFragment_to_stationMainFragment)
+        }
     }
 }

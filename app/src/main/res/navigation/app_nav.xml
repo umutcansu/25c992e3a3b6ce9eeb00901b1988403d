@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_create_space_shuttle" >
         <action
             android:id="@+id/action_createSpaceShuttleFragment_to_stationMainFragment"
-            app:destination="@id/stationMainFragment" />
+            app:destination="@id/stationMainFragment"
+            app:popUpTo="@id/createSpaceShuttleFragment"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/stationMainFragment"

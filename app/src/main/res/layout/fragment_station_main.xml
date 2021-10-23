@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="vm"
             type="com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.station.StationMainViewModel" />
@@ -15,14 +14,7 @@
         android:layout_height="match_parent"
         tools:context=".ui.station.StationMainFragment">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/mainBottomNavigation"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:menu="@menu/station_menu" />
+
 
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/stationFragmentContainerView"
@@ -35,6 +27,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:navGraph="@navigation/station_nav" />
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/mainBottomNavigation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:menu="@menu/station_menu" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
