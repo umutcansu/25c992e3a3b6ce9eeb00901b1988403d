@@ -20,7 +20,8 @@ class CreateSpaceShuttleFragment : BaseFragment<FragmentCreateSpaceShuttleBindin
     }
 
     override fun initUI() {
-        mBinding.tvInfo.setOnClickListener { navigate() }
+        //mBinding.tvInfo.setOnClickListener { navigate() }
+        mViewModel.getStation()
     }
 
     private fun navigate(){

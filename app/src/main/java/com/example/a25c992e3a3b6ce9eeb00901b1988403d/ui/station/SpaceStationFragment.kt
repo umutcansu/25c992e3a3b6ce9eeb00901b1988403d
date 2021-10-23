@@ -17,6 +17,6 @@ class SpaceStationFragment : BaseFragment<FragmentSpaceStationBinding, SpaceStat
     }
 
     override fun initUI() {
-
+        mViewModel.getSpaceStation()
     }
 }
