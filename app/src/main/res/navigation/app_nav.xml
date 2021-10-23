@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_nav"
+    app:startDestination="@id/createSpaceShuttleFragment">
+
+    <fragment
+        android:id="@+id/createSpaceShuttleFragment"
+        android:name="com.example.a25c992e3a3b6ce9eeb00901b1988403d.ui.spaceshuttle.CreateSpaceShuttleFragment"
+        android:label="fragment_create_space_shuttle"
+        tools:layout="@layout/fragment_create_space_shuttle" >
+        <action
+            android:id="@+id/action_createSpaceShuttleFragment_to_stationMainFragment"
+            app:destination="@id/stationMainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/stationMainFragment"
+        android:name="com.example.a25c992e3a3b6ce9eeb00901b1988403d.ui.station.StationMainFragment"
+        android:label="fragment_station_main"
+        tools:layout="@layout/fragment_station_main" />
+</navigation>

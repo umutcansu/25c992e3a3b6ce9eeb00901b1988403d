@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">25c992e3a3b6ce9eeb00901b1988403d</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favorite">Favorite</string>
+    <string name="station">Station</string>
 </resources>
