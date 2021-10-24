@@ -8,7 +8,7 @@ import androidx.room.Update
 interface IDatabaseOperation<T>
 {
     @Insert
-    suspend fun insert(t :T)
+    suspend fun insert(t :T):Long
 
     @Delete
     suspend fun delete(t :T)
