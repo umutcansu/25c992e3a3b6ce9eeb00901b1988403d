@@ -57,7 +57,7 @@
                     android:layout_marginStart="16dp"
                     android:background="@drawable/black_border"
                     android:padding="4dp"
-                    android:text="@{String.valueOf(vm.maxProgressionValue)}"
+                    android:text="@{vm.maxProgressionValue}"
                     android:textSize="36sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -120,7 +120,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="8dp"
-                    android:max="@{vm.maxProgressionValue}"
+                    android:max="@{vm.maxProgression}"
                     android:progress="@={vm.spaceShuttle.durability}" />
 
             </LinearLayout>
@@ -159,7 +159,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="8dp"
-                    android:max="@{vm.maxProgressionValue}"
+                    android:max="@{vm.maxProgression}"
                     android:progress="@={vm.spaceShuttle.speed}" />
 
             </LinearLayout>
@@ -199,7 +199,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:layout_marginTop="8dp"
-                    android:max="@{vm.maxProgressionValue}"
+                    android:max="@{vm.maxProgression}"
                     android:progress="@={vm.spaceShuttle.capacity}" />
 
             </LinearLayout>

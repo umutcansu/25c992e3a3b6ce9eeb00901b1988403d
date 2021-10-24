@@ -18,7 +18,8 @@ class CreateSpaceShuttleViewModel @Inject constructor(repository: BaseRepository
     BaseViewModel(repository) {
 
     val spaceShuttle = SpaceShuttleItem()
-    val maxProgressionValue = MutableLiveData(15)
+    val maxProgression = 15
+    val maxProgressionValue = MutableLiveData(maxProgression.toString())
     val buttonEnable: MutableLiveData<Boolean> = MutableLiveData(false)
     val savedSuccess: MutableLiveData<Boolean> = MutableLiveData(false)
     val spaceShuttleCount: MutableLiveData<Long> = MutableLiveData(0)
@@ -62,7 +63,7 @@ class CreateSpaceShuttleViewModel @Inject constructor(repository: BaseRepository
     private fun checkButtonState() {
         spaceShuttle.apply {
             buttonEnable.value =
-                name.value != null && name.value!!.isNotEmpty() && checkValueValid()
+                checkValueValid() && name.value != null && name.value!!.isNotEmpty()
         }
     }
 
@@ -71,9 +72,24 @@ class CreateSpaceShuttleViewModel @Inject constructor(repository: BaseRepository
             val c = capacity.get()
             val s = speed.get()
             val d = durability.get()
-            return c > 0 && s > 0 && d > 0 &&
-                    (c + s + d == maxProgressionValue.value)
 
+            maxProgressionValue.value = calculateScore().toString()
+                return c > 0 && s > 0 && d > 0 &&
+                        (c + s + d == maxProgression)
+
+        }
+    }
+
+    private fun calculateScore(): Int {
+        spaceShuttle.apply {
+            val c = capacity.get()
+            val s = speed.get()
+            val d = durability.get()
+            var result = maxProgression - (c + s + d)
+            if(result <= 0)
+                result = 0
+
+            return result
         }
     }
 
@@ -93,9 +109,9 @@ class CreateSpaceShuttleViewModel @Inject constructor(repository: BaseRepository
         }
     }
 
-    fun getSpaceShuttleCount(){
+    fun getSpaceShuttleCount() {
         launch {
-            val result =  database.spaceShuttleDao().getAllCount()
+            val result = database.spaceShuttleDao().getAllCount()
             spaceShuttleCount.value = result
         }
     }
