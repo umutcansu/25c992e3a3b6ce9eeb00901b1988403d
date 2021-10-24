@@ -33,7 +33,10 @@ class StationMainFragment : BaseFragment<FragmentStationMainBinding, StationMain
                     R.id.spaceStationFragment, R.id.favoriteSpaceStationFragment
                 )
             )
-            NavigationUI.setupActionBarWithNavController(activity as AppCompatActivity,navController,appBarConfiguration)
+            activity?.actionBar?.let {
+                if(it.isShowing)
+                    NavigationUI.setupActionBarWithNavController(activity as AppCompatActivity,navController,appBarConfiguration)
+            }
             mBinding.mainBottomNavigation.setupWithNavController(navController)
         }
 

@@ -19,9 +19,9 @@ data class SpaceShuttle(
     @ColumnInfo(name = SPACE_SHUTTLE_NAME_FIELD)
     var name: String = "",
     @ColumnInfo(name = SPACE_SHUTTLE_SPEED_FIELD)
-    var speed: Double = 1.0,
+    var speed: Int = 0,
     @ColumnInfo(name = SPACE_SHUTTLE_CAPACITY_FIELD)
-    var capacity: Double = 1.0,
+    var capacity: Int = 0,
     @ColumnInfo(name = SPACE_SHUTTLE_DURABILITY_FIELD)
-    var durability: Double = 1.0,
+    var durability: Int = 0,
 )

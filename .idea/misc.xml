@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/black_border.xml" value="0.38125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/fragment_create_space_shuttle.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/fragment_favorite_space_station.xml" value="0.2572463768115942" />
