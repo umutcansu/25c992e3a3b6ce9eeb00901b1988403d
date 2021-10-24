@@ -7,4 +7,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class StationMainViewModel @Inject constructor(repository: BaseRepository): BaseViewModel(repository) {
+    override fun init() {
+
+    }
 }

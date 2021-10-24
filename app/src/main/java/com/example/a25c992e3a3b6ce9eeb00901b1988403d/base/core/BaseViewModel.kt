@@ -26,4 +26,6 @@ abstract class BaseViewModel(private val repository: BaseRepository) : ViewModel
         super.onCleared()
         job.cancel()
     }
+
+    abstract fun init()
 }

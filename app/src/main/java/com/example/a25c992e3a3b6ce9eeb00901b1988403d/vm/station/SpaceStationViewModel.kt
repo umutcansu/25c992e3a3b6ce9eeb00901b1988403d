@@ -29,4 +29,8 @@ class SpaceStationViewModel @Inject constructor(repository: BaseRepository) : Ba
 
         })
     }
+
+    override fun init() {
+
+    }
 }
