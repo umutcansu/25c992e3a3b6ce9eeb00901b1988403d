@@ -1,5 +1,7 @@
 package com.example.a25c992e3a3b6ce9eeb00901b1988403d.ui.spaceshuttle
 
+import android.view.View
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.R
@@ -24,10 +26,18 @@ class CreateSpaceShuttleFragment :
     }
 
     override fun initUI() {
+        mViewModel.getSpaceShuttleCount()
         initObservable()
     }
 
+
     private fun initObservable() {
+        mViewModel.spaceShuttleCount.observe(viewLifecycleOwner){
+            if(it > 0)
+                navigate()
+            else
+                mBinding.contentLayout.visibility = View.VISIBLE
+        }
         mViewModel.savedSuccess.observe(viewLifecycleOwner) {
             if (it)
                 navigate()
