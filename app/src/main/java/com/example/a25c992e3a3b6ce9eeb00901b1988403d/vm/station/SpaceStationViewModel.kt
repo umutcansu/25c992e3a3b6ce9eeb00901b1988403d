@@ -3,24 +3,43 @@ package com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.station
 import androidx.lifecycle.MutableLiveData
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseRepository
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseViewModel
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceStation
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.model.SpaceStationItem
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import retrofit2.Call
 import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class SpaceStationViewModel @Inject constructor(repository: BaseRepository) : BaseViewModel(repository) {
+class SpaceStationViewModel @Inject constructor(repository: BaseRepository) :
+    BaseViewModel(repository) {
 
-    val spaceStation : MutableLiveData<List<SpaceStationItem>> = MutableLiveData<List<SpaceStationItem>>()
+    val spaceStation: MutableLiveData<List<SpaceStationItem>> =
+        MutableLiveData<List<SpaceStationItem>>()
+    val changeStation: MutableLiveData<SpaceStationItem> = MutableLiveData()
 
-    fun getSpaceStation(){
-        httpClient.getSpaceShuttle().enqueue(object : retrofit2.Callback<List<SpaceStationItem>>{
+    fun setFavorite(data: SpaceStationItem) {
+        data.isFavorite = !data.isFavorite
+        changeStation.value = data
+        launch {
+            runBlocking {
+                database.spaceStationDao().stationDeleteByName(data.name)
+                database.spaceStationDao()
+                    .insert(SpaceStation(name = data.name, isFavorite = data.isFavorite))
+            }
+        }
+    }
+
+    fun getSpaceStation() {
+        httpClient.getSpaceShuttle().enqueue(object : retrofit2.Callback<List<SpaceStationItem>> {
             override fun onResponse(
                 call: Call<List<SpaceStationItem>>,
                 response: Response<List<SpaceStationItem>>
             ) {
-                spaceStation.value = response.body()
+                if (response.body().isNullOrEmpty().not())
+                    spaceStation.value = prepareFavoriteStation(response.body()!!)
             }
 
             override fun onFailure(call: Call<List<SpaceStationItem>>, t: Throwable) {
@@ -28,6 +47,17 @@ class SpaceStationViewModel @Inject constructor(repository: BaseRepository) : Ba
             }
 
         })
+    }
+
+    fun prepareFavoriteStation(data: List<SpaceStationItem>): List<SpaceStationItem> {
+        data.forEach { station ->
+            runBlocking {
+                val result: Boolean? =
+                    database.spaceStationDao().stationIsFavorite(station.name)
+                station.isFavorite = result ?: false
+            }
+        }
+        return data
     }
 
     override fun init() {

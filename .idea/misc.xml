@@ -4,11 +4,14 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/black_border.xml" value="0.38125" />
+        <entry key="app/src/main/res/drawable/ic_baseline_star_border_24.xml" value="0.38125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2572463768115942" />
+        <entry key="app/src/main/res/layout/favorite_space_station_item_view.xml" value="0.2046875" />
         <entry key="app/src/main/res/layout/fragment_create_space_shuttle.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/fragment_favorite_space_station.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/fragment_space_station.xml" value="0.2572463768115942" />
         <entry key="app/src/main/res/layout/fragment_station_main.xml" value="0.2572463768115942" />
+        <entry key="app/src/main/res/layout/space_station_item_view.xml" value="0.2046875" />
         <entry key="app/src/main/res/menu/station_menu.xml" value="0.3651041666666667" />
       </map>
     </option>

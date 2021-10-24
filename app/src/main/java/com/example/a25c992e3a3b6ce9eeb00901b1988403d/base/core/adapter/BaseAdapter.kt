@@ -7,7 +7,7 @@ import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseViewModel
 
 abstract class BaseAdapter<D, VH : BaseViewHolder<ViewDataBinding>, VM : BaseViewModel> : RecyclerView.Adapter<BaseViewHolder<ViewDataBinding>>() {
 
-    var dataSource = arrayListOf<D>()
+    var dataSource = listOf<D>()
     override fun onBindViewHolder(holder: BaseViewHolder<ViewDataBinding>, position: Int) {
         bind(holder.binding, position, dataSource[position])
     }
@@ -18,7 +18,7 @@ abstract class BaseAdapter<D, VH : BaseViewHolder<ViewDataBinding>, VM : BaseVie
 
     open fun getViewHolder(parent: ViewGroup, viewType: Int) = BaseViewHolder(createBinding(parent, viewType))
     abstract fun createBinding(parent: ViewGroup, viewType: Int): ViewDataBinding
-    protected abstract fun bind(binding: ViewDataBinding, position: Int, d: D)
+    protected abstract fun bind(binding: ViewDataBinding, position: Int, data: D)
 
     fun getItem(position: Int) = dataSource[position]
     override fun getItemCount() = dataSource.size

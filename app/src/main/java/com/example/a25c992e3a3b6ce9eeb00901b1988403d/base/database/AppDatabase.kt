@@ -13,12 +13,15 @@ import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_SPEED_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_TABLE_NAME
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.dao.SpaceShuttleDao
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.dao.SpaceStationDao
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceShuttle
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceStation
 
-@Database(entities = [SpaceShuttle::class], version = DATABASE_VERSION)
+@Database(entities = [SpaceShuttle::class, SpaceStation::class], version = DATABASE_VERSION)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun spaceShuttleDao(): SpaceShuttleDao
+    abstract fun spaceStationDao(): SpaceStationDao
 
     companion object {
         @Volatile

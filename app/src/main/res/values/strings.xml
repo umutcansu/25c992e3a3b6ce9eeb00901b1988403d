@@ -5,4 +5,6 @@
     <string name="favorite">Favorite</string>
     <string name="station">Station</string>
     <string name="name">Name</string>
+    <string name="rvPrev"><![CDATA[<]]></string>
+    <string name="rvNext"><![CDATA[>]]></string>
 </resources>

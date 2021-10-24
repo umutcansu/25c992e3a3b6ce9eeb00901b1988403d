@@ -7,5 +7,6 @@ data class SpaceStationItem(
     val coordinateY: Double = 0.0,
     val name: String = "",
     val need: Int = 0,
-    val stock: Int = 0
+    val stock: Int = 0,
+    var isFavorite:Boolean = false
 )
