@@ -26,18 +26,11 @@ class CreateSpaceShuttleFragment :
     }
 
     override fun initUI() {
-        mViewModel.getSpaceShuttleCount()
         initObservable()
     }
 
 
     private fun initObservable() {
-        mViewModel.spaceShuttleCount.observe(viewLifecycleOwner){
-            if(it > 0)
-                navigate()
-            else
-                mBinding.contentLayout.visibility = View.VISIBLE
-        }
         mViewModel.savedSuccess.observe(viewLifecycleOwner) {
             if (it)
                 navigate()

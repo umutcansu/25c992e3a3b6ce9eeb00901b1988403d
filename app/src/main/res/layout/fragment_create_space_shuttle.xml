@@ -24,7 +24,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:orientation="vertical"
-            android:visibility="gone"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -81,9 +81,9 @@
                 android:layout_marginEnd="8dp"
                 android:background="@drawable/black_border"
                 android:ems="10"
+                android:hint="İsim"
                 android:inputType="textPersonName"
                 android:padding="8dp"
-                android:hint="İsim"
                 android:text="@={vm.spaceShuttle.name}" />
 
             <LinearLayout

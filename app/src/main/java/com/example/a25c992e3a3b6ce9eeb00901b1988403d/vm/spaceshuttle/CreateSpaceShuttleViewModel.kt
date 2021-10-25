@@ -22,7 +22,7 @@ class CreateSpaceShuttleViewModel @Inject constructor(repository: BaseRepository
     val maxProgressionValue = MutableLiveData(maxProgression.toString())
     val buttonEnable: MutableLiveData<Boolean> = MutableLiveData(false)
     val savedSuccess: MutableLiveData<Boolean> = MutableLiveData(false)
-    val spaceShuttleCount: MutableLiveData<Long> = MutableLiveData(0)
+
 
     override fun init() {
         initObservable()
@@ -109,12 +109,7 @@ class CreateSpaceShuttleViewModel @Inject constructor(repository: BaseRepository
         }
     }
 
-    fun getSpaceShuttleCount() {
-        launch {
-            val result = database.spaceShuttleDao().getAllCount()
-            spaceShuttleCount.value = result
-        }
-    }
+
 
 
 }
