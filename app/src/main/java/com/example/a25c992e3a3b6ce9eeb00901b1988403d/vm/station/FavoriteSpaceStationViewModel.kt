@@ -19,6 +19,8 @@ class FavoriteSpaceStationViewModel @Inject constructor(repository: BaseReposito
     val spaceStation: MutableLiveData<List<SpaceStationItem>> =
         MutableLiveData<List<SpaceStationItem>>()
 
+    val changeStation: MutableLiveData<SpaceStationItem> = MutableLiveData()
+
     fun getSpaceStation() {
         httpClient.getSpaceShuttle().enqueue(object : retrofit2.Callback<List<SpaceStationItem>> {
             override fun onResponse(
@@ -51,6 +53,7 @@ class FavoriteSpaceStationViewModel @Inject constructor(repository: BaseReposito
 
     fun setFavorite(data: SpaceStationItem) {
         data.isFavorite = !data.isFavorite
+        changeStation.value = data
         launch {
             runBlocking {
                 database.spaceStationDao().stationDeleteByName(data.name)

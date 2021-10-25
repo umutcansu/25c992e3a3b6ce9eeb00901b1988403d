@@ -33,6 +33,13 @@ class FavoriteSpaceStationFragment : BaseFragment<FragmentFavoriteSpaceStationBi
                 initRecyclerAdapter(it)
             }
         }
+        mViewModel.changeStation.observe(viewLifecycleOwner){
+            adapter.notifyItemChanged(getItemPosition(it))
+        }
+    }
+
+    private fun getItemPosition(data:SpaceStationItem):Int{
+        return adapter.dataSource.indexOf(data)
     }
 
     @SuppressLint("NotifyDataSetChanged")
