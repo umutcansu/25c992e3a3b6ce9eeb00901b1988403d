@@ -1,7 +1,6 @@
 package com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core
 
 import androidx.lifecycle.ViewModel
-import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job

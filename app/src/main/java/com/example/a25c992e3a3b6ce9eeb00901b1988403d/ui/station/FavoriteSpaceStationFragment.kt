@@ -3,7 +3,6 @@ package com.example.a25c992e3a3b6ce9eeb00901b1988403d.ui.station
 import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProvider
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.adapter.FavoriteSpaceStationAdapter
-import com.example.a25c992e3a3b6ce9eeb00901b1988403d.adapter.SpaceStationAdapter
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseFragment
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.databinding.FragmentFavoriteSpaceStationBinding
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.model.SpaceStationItem

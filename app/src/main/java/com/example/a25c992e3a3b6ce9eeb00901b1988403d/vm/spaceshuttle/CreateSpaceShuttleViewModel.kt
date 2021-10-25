@@ -1,10 +1,7 @@
 package com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.spaceshuttle
 
-import androidx.appcompat.widget.AppCompatSeekBar
 import androidx.databinding.Observable
-import androidx.databinding.ObservableInt
 import androidx.lifecycle.MutableLiveData
-import com.example.a25c992e3a3b6ce9eeb00901b1988403d.R
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseRepository
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseViewModel
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceShuttle

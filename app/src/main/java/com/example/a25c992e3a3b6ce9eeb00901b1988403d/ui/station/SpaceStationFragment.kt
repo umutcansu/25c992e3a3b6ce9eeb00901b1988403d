@@ -3,10 +3,9 @@ package com.example.a25c992e3a3b6ce9eeb00901b1988403d.ui.station
 import android.annotation.SuppressLint
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.adapter.SpaceStationAdapter
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseFragment
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.helper.UIExtension.getCurrentPosition
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.databinding.FragmentSpaceStationBinding
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.model.SpaceStationItem
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.station.SpaceStationViewModel
@@ -49,7 +48,7 @@ class SpaceStationFragment : BaseFragment<FragmentSpaceStationBinding, SpaceStat
     }
 
     private fun getCurrentPosition() : Int {
-        return (mBinding.rvSpaceStation.layoutManager as LinearLayoutManager).findFirstVisibleItemPosition()
+        return mBinding.rvSpaceStation.getCurrentPosition()
     }
 
     private fun initObservable() {
