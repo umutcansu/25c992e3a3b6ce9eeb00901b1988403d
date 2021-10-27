@@ -4,6 +4,9 @@ import androidx.databinding.Observable
 import androidx.lifecycle.MutableLiveData
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseRepository
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseViewModel
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.DS_FACTOR
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.EUS_FACTOR
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.UGS_FACTOR
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceShuttle
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.model.SpaceShuttleItem
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -95,7 +98,10 @@ class CreateSpaceShuttleViewModel @Inject constructor(repository: BaseRepository
             name = spaceShuttle.name.value!!,
             speed = spaceShuttle.speed.get(),
             capacity = spaceShuttle.capacity.get(),
-            durability = spaceShuttle.durability.get()
+            durability = spaceShuttle.durability.get(),
+            UGS = spaceShuttle.capacity.get() * UGS_FACTOR,
+            EUS = spaceShuttle.speed.get() * EUS_FACTOR,
+            DS = spaceShuttle.durability.get() * DS_FACTOR
         )
     }
 
