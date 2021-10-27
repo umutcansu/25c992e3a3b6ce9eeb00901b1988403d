@@ -1,6 +1,8 @@
 package com.example.a25c992e3a3b6ce9eeb00901b1988403d.ui.station
 
+import android.content.DialogInterface
 import android.view.View
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
@@ -26,11 +28,30 @@ class StationMainFragment : BaseFragment<FragmentStationMainBinding, StationMain
     }
 
     private fun initObservable() {
-        mViewModel.spaceStationSaved.observe(viewLifecycleOwner) {
-            if (it) {
-                navigationStart()
-                visibleLoadingOrContent(CONTENT)
+        mViewModel.apply {
+            spaceStationIsLoad.observe(viewLifecycleOwner) {
+                showStationLoadOrContinue()
             }
+
+            spaceStationSaved.observe(viewLifecycleOwner) {
+                if (it) {
+                    navigationStart()
+                    visibleLoadingOrContent(CONTENT)
+                }
+            }
+        }
+    }
+
+    private fun showStationLoadOrContinue() {
+        context?.let { c ->
+            AlertDialog.Builder(c).setTitle("Uyarı")
+                .setMessage("Mevcut istasyonlar / görevler temizlensin mi?")
+                .setPositiveButton("Evet")
+                { _, _ -> mViewModel.getSpaceStation() }
+                .setNegativeButton("Hayır") { dialog, _ ->
+                    mViewModel.spaceStationSaved.value = true
+                    dialog.dismiss()
+                }.show()
         }
     }
 

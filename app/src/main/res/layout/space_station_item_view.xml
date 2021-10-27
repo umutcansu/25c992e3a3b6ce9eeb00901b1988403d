@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
+<layout
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -85,7 +85,8 @@
                     android:onClick="@{() -> vm.setFavorite(data)}"
                     android:src="@{data.isFavorite ? @drawable/ic_baseline_star_24 :@drawable/ic_baseline_star_border_24}"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:focusable="true" />
 
                 <Button
                     android:id="@+id/btnTravel"
@@ -93,7 +94,7 @@
                     android:layout_height="wrap_content"
                     android:enabled="@{!data.isFinished}"
                     android:onClick="@{() -> vm.travel(data)}"
-                    android:text="Travel"
+                    android:text="@string/travel"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent" />

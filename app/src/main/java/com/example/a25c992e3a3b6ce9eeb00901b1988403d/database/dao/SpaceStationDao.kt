@@ -23,6 +23,7 @@ interface SpaceStationDao:IDatabaseOperation<SpaceStation> {
     @Query("select * from SpaceStation where IsFavorite = :isFavorite")
     suspend fun getFavoriteStateStation(isFavorite:Boolean = true):List<SpaceStation>
 
-
+    @Query("delete from SpaceStation")
+    suspend fun deleteAll()
 
 }

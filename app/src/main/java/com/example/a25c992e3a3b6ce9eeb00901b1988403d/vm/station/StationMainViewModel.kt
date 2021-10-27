@@ -15,18 +15,22 @@ import javax.inject.Inject
 class StationMainViewModel @Inject constructor(repository: BaseRepository) :
     BaseViewModel(repository) {
     val spaceStationSaved: MutableLiveData<Boolean> = MutableLiveData()
+    val spaceStationIsLoad: MutableLiveData<Boolean> = MutableLiveData()
 
     override fun init() {
-        getSpaceStation()
+        getSpaceStationIsLoad()
     }
 
-    private fun getSpaceStation() {
+    fun getSpaceStationIsLoad() {
         runBlocking {
-            if (!database.spaceStationDao().stationIsLoad()) {
-                getSpaceStationAPI()
-            } else {
-                spaceStationSaved.value = true
-            }
+            spaceStationIsLoad.value = database.spaceStationDao().stationIsLoad()
+        }
+    }
+
+    fun getSpaceStation() {
+        runBlocking {
+            database.spaceStationDao().deleteAll()
+            getSpaceStationAPI()
         }
     }
 

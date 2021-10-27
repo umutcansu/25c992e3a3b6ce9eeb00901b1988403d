@@ -9,5 +9,5 @@
     <item
         android:id="@+id/favoriteSpaceStationFragment"
         android:icon="@drawable/ic_baseline_star_24"
-        android:title="@string/favorite" />
+        android:title="@string/favorites" />
 </menu>

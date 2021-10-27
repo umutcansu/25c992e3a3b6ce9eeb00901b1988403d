@@ -1,10 +1,14 @@
 <resources>
     <string name="app_name">25c992e3a3b6ce9eeb00901b1988403d</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="favorite">Favorite</string>
-    <string name="station">Station</string>
-    <string name="name">Name</string>
+    <string name="favorites">Favoriler</string>
+    <string name="station">İstasyonlar</string>
+    <string name="name">İsim</string>
     <string name="rvPrev"><![CDATA[<]]></string>
     <string name="rvNext"><![CDATA[>]]></string>
+    <string name="travel">Git</string>
+    <string name="create_shuttle">Devam ET</string>
+    <string name="pay_score">Dağıtılacak Puan</string>
+    <string name="durability">Dayanıklılık :</string>
+    <string name="speed">Hız :</string>
+    <string name="capacity">Kapasite :</string>
 </resources>

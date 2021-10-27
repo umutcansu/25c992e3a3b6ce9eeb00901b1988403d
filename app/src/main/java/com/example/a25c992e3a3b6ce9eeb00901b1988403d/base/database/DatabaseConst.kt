@@ -6,7 +6,6 @@ object DatabaseConst {
 
     const val SPACE_SHUTTLE_DEFAULT_STATION_NAME = "Dünya"
     const val SPACE_SHUTTLE_DEFAULT_DAMAGE_VALUE = 100
-    const val DAMAGE_DS_FACTOR = 10
     const val UGS_FACTOR = 10_000
     const val EUS_FACTOR = 20
     const val DS_FACTOR = 10_000

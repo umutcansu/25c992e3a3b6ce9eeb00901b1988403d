@@ -15,12 +15,6 @@ import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import kotlin.collections.ArrayList
-import android.widget.Toast
-
-import com.example.a25c992e3a3b6ce9eeb00901b1988403d.MainActivity
-
-
-
 
 @AndroidEntryPoint
 class SpaceStationFragment : BaseFragment<FragmentSpaceStationBinding, SpaceStationViewModel>() {

@@ -8,8 +8,6 @@ import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceStatio
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
-import kotlin.math.pow
-import kotlin.math.sqrt
 
 @HiltViewModel
 open class SpaceStationViewModel @Inject constructor(repository: BaseRepository) :
@@ -108,11 +106,6 @@ open class SpaceStationViewModel @Inject constructor(repository: BaseRepository)
             return 0
         return currentStation!!.calculateDistance(targetStation)
     }
-
-
-
-
-
 
     override fun init() {
 

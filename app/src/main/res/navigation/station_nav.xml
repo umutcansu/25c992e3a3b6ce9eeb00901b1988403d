@@ -13,6 +13,6 @@
     <fragment
         android:id="@+id/favoriteSpaceStationFragment"
         android:name="com.example.a25c992e3a3b6ce9eeb00901b1988403d.ui.station.FavoriteSpaceStationFragment"
-        android:label="@string/favorite"
+        android:label="@string/favorites"
         tools:layout="@layout/fragment_favorite_space_station" />
 </navigation>

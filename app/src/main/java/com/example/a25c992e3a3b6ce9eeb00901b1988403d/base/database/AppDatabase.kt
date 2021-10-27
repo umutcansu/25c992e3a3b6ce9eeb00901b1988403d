@@ -8,10 +8,17 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.DATABASE_NAME
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.DATABASE_VERSION
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_CAPACITY_FIELD
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_CURRENT_STATION_FIELD
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DAMAGE_FIELD
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DEFAULT_DAMAGE_VALUE
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DEFAULT_STATION_NAME
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DS_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DURABILITY_FIELD
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_EUS_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_NAME_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_SPEED_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_TABLE_NAME
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_UGS_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.dao.SpaceShuttleDao
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.dao.SpaceStationDao
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceShuttle
@@ -42,7 +49,7 @@ abstract class AppDatabase : RoomDatabase() {
             )
                 .allowMainThreadQueries()
                 .fallbackToDestructiveMigration()
-                //.addCallback(roomCallback)
+                //.addCallback(roomCallback) // seed için kullanılabilir.
                 .build()
         }
 
@@ -60,14 +67,24 @@ abstract class AppDatabase : RoomDatabase() {
                 $SPACE_SHUTTLE_NAME_FIELD, 
                 $SPACE_SHUTTLE_SPEED_FIELD,
                 $SPACE_SHUTTLE_CAPACITY_FIELD,
-                $SPACE_SHUTTLE_DURABILITY_FIELD
+                $SPACE_SHUTTLE_DURABILITY_FIELD,
+                $SPACE_SHUTTLE_CURRENT_STATION_FIELD,
+                $SPACE_SHUTTLE_UGS_FIELD,
+                $SPACE_SHUTTLE_EUS_FIELD,
+                $SPACE_SHUTTLE_DS_FIELD,
+                $SPACE_SHUTTLE_DAMAGE_FIELD
             )
             values
             (
                 "Sample",
                 50.0,
                 30.0,
-                20.0
+                20.0,
+                $SPACE_SHUTTLE_DEFAULT_STATION_NAME,
+                10000,
+                100,
+                10000,
+                $SPACE_SHUTTLE_DEFAULT_DAMAGE_VALUE
             );
             """.trim()
     }
