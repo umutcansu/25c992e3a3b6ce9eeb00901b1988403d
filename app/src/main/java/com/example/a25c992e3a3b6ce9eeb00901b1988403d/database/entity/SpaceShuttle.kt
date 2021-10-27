@@ -5,6 +5,8 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_CAPACITY_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_CURRENT_STATION_FIELD
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DAMAGE_FIELD
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DEFAULT_DAMAGE_VALUE
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DEFAULT_STATION_NAME
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DS_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_SHUTTLE_DURABILITY_FIELD
@@ -37,4 +39,6 @@ data class SpaceShuttle(
     var EUS: Int,
     @ColumnInfo(name = SPACE_SHUTTLE_DS_FIELD)
     var DS: Int,
+    @ColumnInfo(name = SPACE_SHUTTLE_DAMAGE_FIELD)
+    var Damage: Int = SPACE_SHUTTLE_DEFAULT_DAMAGE_VALUE
 )

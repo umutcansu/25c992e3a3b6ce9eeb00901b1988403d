@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <import type="com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst"/>
         <variable
             name="vm"
             type="com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.station.SpaceStationViewModel" />
@@ -17,16 +17,144 @@
         tools:context=".ui.station.SpaceStationFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clStationList"
+            android:id="@+id/clShuttleInfo"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@+id/horizonRule"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@{String.format(`%s : %d`,DatabaseConst.SPACE_SHUTTLE_UGS_FIELD,vm.currentShuttle.UGS) }"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="UGS : 5000" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@{String.format(`%s : %d`,DatabaseConst.SPACE_SHUTTLE_EUS_FIELD,vm.currentShuttle.EUS) }"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="EUS : 500" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@{String.format(`%s : %d`,DatabaseConst.SPACE_SHUTTLE_DS_FIELD,vm.currentShuttle.DS) }"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="DS : 50000" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <View
+                android:id="@+id/horizonRule"
+                android:layout_width="wrap_content"
+                android:layout_height="3dp"
+                android:layout_weight="1"
+                android:background="@color/black"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat3"
+                app:layout_constraintEnd_toEndOf="@+id/tvHeader"
+                app:layout_constraintStart_toStartOf="@+id/tvHeader"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayoutCompat2" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linearLayoutCompat3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizonRule">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@{vm.currentShuttle.name}"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="WhartonX" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/black_border"
+                    android:gravity="center"
+                    android:text="@{String.valueOf(vm.currentShuttle.damage)}"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="100" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/black_border"
+                    android:gravity="center"
+                    android:textColor="@color/black"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    tools:text="49s" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svSpaceStation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/black_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clShuttleInfo" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clStationList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
             android:orientation="horizontal"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/svSpaceStation"
             tools:visibility="visible">
 
             <TextView
@@ -43,15 +171,13 @@
             <LinearLayout
                 android:id="@+id/ll_space_station_list"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toStartOf="@+id/tvNext"
-                app:layout_constraintStart_toEndOf="@+id/tvPrev">
+                app:layout_constraintStart_toEndOf="@+id/tvPrev"
+                app:layout_constraintTop_toTopOf="parent">
 
-                <androidx.appcompat.widget.SearchView
-                    android:id="@+id/sv_space_statio"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rv_space_station"
@@ -67,7 +193,6 @@
             </LinearLayout>
 
 
-
             <TextView
                 android:id="@+id/tvNext"
                 android:layout_width="wrap_content"
@@ -75,12 +200,25 @@
                 android:layout_marginEnd="16dp"
                 android:text="@string/rvNext"
                 android:textSize="72sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/ll_space_station_list"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="@+id/ll_space_station_list" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvCurrentStation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@={vm.currentShuttle.currentStation}"
+            android:textSize="48sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clStationList"
+            tools:text="Dünya" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,6 @@ import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseFragment
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.helper.UIExtension.getCurrentPosition
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceStation
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.databinding.FragmentSpaceStationBinding
-import com.example.a25c992e3a3b6ce9eeb00901b1988403d.model.SpaceStationItem
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.station.SpaceStationViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
@@ -37,6 +36,7 @@ class SpaceStationFragment : BaseFragment<FragmentSpaceStationBinding, SpaceStat
         initFilter()
         initObservable()
         mViewModel.getSpaceStation()
+        mViewModel.getCurrentSpaceShuttle()
     }
 
     private fun initButton() {
@@ -56,7 +56,7 @@ class SpaceStationFragment : BaseFragment<FragmentSpaceStationBinding, SpaceStat
     }
 
     private fun initSearchBox() {
-        mBinding.svSpaceStatio.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        mBinding.svSpaceStation.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
 
                 return false

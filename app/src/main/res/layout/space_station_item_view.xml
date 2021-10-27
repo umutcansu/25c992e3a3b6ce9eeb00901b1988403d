@@ -27,8 +27,7 @@
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            app:cardBackgroundColor="@color/cardview_shadow_end_color"
-            app:cardCornerRadius="5dp"
+            app:cardCornerRadius="15dp"
             app:cardElevation="3dp"
             app:cardUseCompatPadding="true"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -68,9 +67,9 @@
                     android:layout_marginTop="32dp"
                     android:layout_marginBottom="32dp"
                     android:gravity="center_horizontal"
+                    android:text="@{data.name}"
                     android:textSize="32sp"
                     android:textStyle="bold"
-                    android:text="@{data.name}"
                     app:layout_constraintBottom_toTopOf="@+id/btnTravel"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -82,11 +81,11 @@
                     android:layout_height="50dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     android:clickable="true"
                     android:onClick="@{() -> vm.setFavorite(data)}"
-                    android:src="@{data.isFavorite ? @drawable/ic_baseline_star_24 :@drawable/ic_baseline_star_border_24}" />
+                    android:src="@{data.isFavorite ? @drawable/ic_baseline_star_24 :@drawable/ic_baseline_star_border_24}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/btnTravel"
