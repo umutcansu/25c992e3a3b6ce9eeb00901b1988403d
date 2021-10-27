@@ -18,11 +18,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clShuttleInfo"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/svSpaceStation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -30,7 +31,8 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearLayoutCompat2"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 app:layout_constraintBottom_toTopOf="@+id/horizonRule"
@@ -77,6 +79,8 @@
                 android:id="@+id/horizonRule"
                 android:layout_width="wrap_content"
                 android:layout_height="3dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
                 android:layout_weight="1"
                 android:background="@color/black"
                 app:layout_constraintBottom_toTopOf="@+id/linearLayoutCompat3"
@@ -87,17 +91,21 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearLayoutCompat3"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/horizonRule">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:gravity="center"
+                    android:gravity="start"
                     android:text="@{vm.currentShuttle.name}"
                     android:textColor="@color/black"
                     android:textSize="24sp"
@@ -174,6 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/tvNext"
                 app:layout_constraintStart_toEndOf="@+id/tvPrev"
                 app:layout_constraintTop_toTopOf="parent">
@@ -202,6 +211,7 @@
                 android:textSize="72sp"
                 app:layout_constraintBottom_toBottomOf="@+id/ll_space_station_list"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ll_space_station_list"
                 app:layout_constraintTop_toTopOf="@+id/ll_space_station_list" />
 
 
