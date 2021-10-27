@@ -7,11 +7,12 @@ import androidx.databinding.ViewDataBinding
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.R
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.adapter.BaseAdapter
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.adapter.BaseViewHolder
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceStation
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.databinding.FavoriteSpaceStationItemViewBinding
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.model.SpaceStationItem
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.station.FavoriteSpaceStationViewModel
 
-class FavoriteSpaceStationAdapter : BaseAdapter<SpaceStationItem, BaseViewHolder<ViewDataBinding>, FavoriteSpaceStationViewModel>() {
+class FavoriteSpaceStationAdapter : BaseAdapter<SpaceStation, BaseViewHolder<ViewDataBinding>, FavoriteSpaceStationViewModel>() {
 
     lateinit var mViewModel: FavoriteSpaceStationViewModel
     lateinit var mBinding: FavoriteSpaceStationItemViewBinding
@@ -27,12 +28,12 @@ class FavoriteSpaceStationAdapter : BaseAdapter<SpaceStationItem, BaseViewHolder
         return mBinding
     }
 
-    override fun bind(binding: ViewDataBinding, position: Int, data: SpaceStationItem) {
+    override fun bind(binding: ViewDataBinding, position: Int, data: SpaceStation) {
         mBinding = binding as FavoriteSpaceStationItemViewBinding
         mBinding.data = data
     }
 
-    fun setData(favoriteSpaceList: List<SpaceStationItem>, mViewModel: FavoriteSpaceStationViewModel) {
+    fun setData(favoriteSpaceList: List<SpaceStation>, mViewModel: FavoriteSpaceStationViewModel) {
         dataSource = favoriteSpaceList
         this.mViewModel = mViewModel
     }

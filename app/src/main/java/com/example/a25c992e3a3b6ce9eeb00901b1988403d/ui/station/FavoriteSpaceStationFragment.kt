@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProvider
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.adapter.FavoriteSpaceStationAdapter
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseFragment
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceStation
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.databinding.FragmentFavoriteSpaceStationBinding
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.model.SpaceStationItem
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.station.FavoriteSpaceStationViewModel
@@ -24,7 +25,7 @@ class FavoriteSpaceStationFragment : BaseFragment<FragmentFavoriteSpaceStationBi
 
     override fun initUI() {
         initObservable()
-        mViewModel.getSpaceStation()
+        mViewModel.getFavoriteSpaceStation()
     }
 
     private fun initObservable() {
@@ -38,12 +39,12 @@ class FavoriteSpaceStationFragment : BaseFragment<FragmentFavoriteSpaceStationBi
         }
     }
 
-    private fun getItemPosition(data:SpaceStationItem):Int{
+    private fun getItemPosition(data:SpaceStation):Int{
         return adapter.dataSource.indexOf(data)
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun initRecyclerAdapter(spaceStationList: List<SpaceStationItem>) {
+    private fun initRecyclerAdapter(spaceStationList: List<SpaceStation>) {
         if (mBinding.rvFavoriteSpaceStation.adapter == null) {
             adapter = FavoriteSpaceStationAdapter()
             mBinding.rvFavoriteSpaceStation.adapter = adapter

@@ -13,52 +13,27 @@ import retrofit2.Response
 import javax.inject.Inject
 
 @HiltViewModel
-class SpaceStationViewModel @Inject constructor(repository: BaseRepository) :
+open class SpaceStationViewModel @Inject constructor(repository: BaseRepository) :
     BaseViewModel(repository) {
 
-    val spaceStation: MutableLiveData<List<SpaceStationItem>> =
-        MutableLiveData<List<SpaceStationItem>>()
-    val changeStation: MutableLiveData<SpaceStationItem> = MutableLiveData()
+    val spaceStation: MutableLiveData<List<SpaceStation>> =
+        MutableLiveData<List<SpaceStation>>()
+    val changeStation: MutableLiveData<SpaceStation> = MutableLiveData()
 
-    fun setFavorite(data: SpaceStationItem) {
+    fun setFavorite(data: SpaceStation) {
         data.isFavorite = !data.isFavorite
         changeStation.value = data
-        launch {
             runBlocking {
-                database.spaceStationDao().stationDeleteByName(data.name)
-                database.spaceStationDao()
-                    .insert(SpaceStation(name = data.name, isFavorite = data.isFavorite))
+                database.spaceStationDao().update(data)
             }
-        }
     }
 
     fun getSpaceStation() {
-        httpClient.getSpaceShuttle().enqueue(object : retrofit2.Callback<List<SpaceStationItem>> {
-            override fun onResponse(
-                call: Call<List<SpaceStationItem>>,
-                response: Response<List<SpaceStationItem>>
-            ) {
-                if (response.body().isNullOrEmpty().not())
-                    spaceStation.value = prepareFavoriteStation(response.body()!!)
-            }
-
-            override fun onFailure(call: Call<List<SpaceStationItem>>, t: Throwable) {
-
-            }
-
-        })
-    }
-
-    fun prepareFavoriteStation(data: List<SpaceStationItem>): List<SpaceStationItem> {
-        data.forEach { station ->
-            runBlocking {
-                val result: Boolean? =
-                    database.spaceStationDao().stationIsFavorite(station.name)
-                station.isFavorite = result ?: false
-            }
+        runBlocking {
+            spaceStation.value = database.spaceStationDao().getAllStation()
         }
-        return data
     }
+
 
     override fun init() {
 

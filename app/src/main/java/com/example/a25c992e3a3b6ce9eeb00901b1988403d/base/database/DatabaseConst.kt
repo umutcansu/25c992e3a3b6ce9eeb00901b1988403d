@@ -15,5 +15,10 @@ object DatabaseConst {
     const val SPACE_STATION_ID_FIELD = "Id"
     const val SPACE_STATION_NAME_FIELD = "Name"
     const val SPACE_STATION_IS_FAVORITE_FIELD = "IsFavorite"
+    const val SPACE_STATION_CAPACITY_FIELD = "Capacity"
+    const val SPACE_STATION_STOCK_FIELD = "Stock"
+    const val SPACE_STATION_COORDINATE_X_FIELD = "CoordinateX"
+    const val SPACE_STATION_COORDINATE_Y_FIELD = "CoordinateY"
+    const val SPACE_STATION_NEED_FIELD = "Need"
 
 }

@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.adapter.SpaceStationAdapter
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.core.BaseFragment
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.helper.UIExtension.getCurrentPosition
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceStation
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.databinding.FragmentSpaceStationBinding
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.model.SpaceStationItem
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.station.SpaceStationViewModel
@@ -64,7 +65,7 @@ class SpaceStationFragment : BaseFragment<FragmentSpaceStationBinding, SpaceStat
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    private fun initRecyclerAdapter(spaceStationList: List<SpaceStationItem>) {
+    private fun initRecyclerAdapter(spaceStationList: List<SpaceStation>) {
         if (mBinding.rvSpaceStation.adapter == null) {
             adapter = SpaceStationAdapter()
             mBinding.rvSpaceStation.adapter = adapter

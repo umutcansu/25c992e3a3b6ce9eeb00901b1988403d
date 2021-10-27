@@ -8,7 +8,7 @@
 
         <variable
             name="data"
-            type="com.example.a25c992e3a3b6ce9eeb00901b1988403d.model.SpaceStationItem" />
+            type="com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceStation" />
 
         <variable
             name="vm"

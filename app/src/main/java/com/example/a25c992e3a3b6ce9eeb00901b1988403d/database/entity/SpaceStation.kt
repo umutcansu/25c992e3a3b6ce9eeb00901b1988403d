@@ -12,6 +12,16 @@ data class SpaceStation(
     var id: Long = 0,
     @ColumnInfo(name = DatabaseConst.SPACE_STATION_NAME_FIELD)
     val name: String,
+    @ColumnInfo(name = DatabaseConst.SPACE_STATION_CAPACITY_FIELD)
+    var capacity: Long = 0,
+    @ColumnInfo(name = DatabaseConst.SPACE_STATION_STOCK_FIELD)
+    var stock: Long = 0,
+    @ColumnInfo(name = DatabaseConst.SPACE_STATION_NEED_FIELD)
+    val need: Long = 0,
+    @ColumnInfo(name = DatabaseConst.SPACE_STATION_COORDINATE_X_FIELD)
+    val coordinateX: Double = 0.0,
+    @ColumnInfo(name = DatabaseConst.SPACE_STATION_COORDINATE_Y_FIELD)
+    val coordinateY: Double = 0.0,
     @ColumnInfo(name = DatabaseConst.SPACE_STATION_IS_FAVORITE_FIELD)
-    val isFavorite: Boolean
+    var isFavorite: Boolean,
 )

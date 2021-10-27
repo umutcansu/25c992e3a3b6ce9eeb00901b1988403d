@@ -14,6 +14,15 @@ interface SpaceStationDao:IDatabaseOperation<SpaceStation> {
     @Query("select IsFavorite from SpaceStation where Name = :stationName")
     suspend fun stationIsFavorite(stationName:String):Boolean?
 
-    @Query("delete from SpaceStation where Name = :stationName")
-    suspend fun stationDeleteByName(stationName:String):Int
+    @Query("select count(*) > 0 from SpaceStation")
+    suspend fun stationIsLoad():Boolean
+
+    @Query("select * from SpaceStation")
+    suspend fun getAllStation():List<SpaceStation>
+
+    @Query("select * from SpaceStation where IsFavorite = :isFavorite")
+    suspend fun getFavoriteStateStation(isFavorite:Boolean = true):List<SpaceStation>
+
+
+
 }
