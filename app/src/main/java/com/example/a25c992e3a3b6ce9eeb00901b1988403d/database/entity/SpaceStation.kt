@@ -9,6 +9,7 @@ import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_STATION_COORDINATE_Y_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_STATION_ID_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_STATION_IS_FAVORITE_FIELD
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_STATION_IS_FINISHED_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_STATION_NAME_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_STATION_NEED_FIELD
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.database.DatabaseConst.SPACE_STATION_STOCK_FIELD
@@ -32,4 +33,7 @@ data class SpaceStation(
     val coordinateY: Double = 0.0,
     @ColumnInfo(name = SPACE_STATION_IS_FAVORITE_FIELD)
     var isFavorite: Boolean,
+    @ColumnInfo(name = SPACE_STATION_IS_FINISHED_FIELD)
+    var isFinished: Boolean = false,
+
 )
