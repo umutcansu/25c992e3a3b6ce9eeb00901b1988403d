@@ -20,6 +20,7 @@ open class SpaceStationViewModel @Inject constructor(repository: BaseRepository)
         MutableLiveData<List<SpaceStation>>()
     val changeStation: MutableLiveData<SpaceStation> = MutableLiveData()
 
+
     fun setFavorite(data: SpaceStation) {
         data.isFavorite = !data.isFavorite
         changeStation.value = data
