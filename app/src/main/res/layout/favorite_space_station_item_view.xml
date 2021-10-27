@@ -43,24 +43,24 @@
                 android:layout_margin="8dp">
 
                 <TextView
-                    android:id="@+id/tvStockInfo"
+                    android:id="@+id/tvStationName"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:text="@{String.format(`%s/%s`,data.capacity,data.stock) }"
-                    app:layout_constraintBottom_toTopOf="@+id/tvScore"
+                    android:text="@{data.name}"
+                    app:layout_constraintBottom_toTopOf="@+id/tvEUS"
                     app:layout_constraintEnd_toStartOf="@+id/imgFavorite"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="@+id/imgFavorite" />
 
                 <TextView
-                    android:id="@+id/tvScore"
+                    android:id="@+id/tvEUS"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:text="@{data.name}"
+                    android:text="@{String.format(`%d EUS`,vm.getEarthEUSDistance(data))}"
                     app:layout_constraintBottom_toBottomOf="@+id/imgFavorite"
                     app:layout_constraintEnd_toStartOf="@+id/imgFavorite"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvStockInfo" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvStationName" />
 
 
                 <ImageView

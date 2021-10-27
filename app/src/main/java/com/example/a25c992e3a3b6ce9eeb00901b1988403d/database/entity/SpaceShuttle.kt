@@ -40,5 +40,5 @@ data class SpaceShuttle(
     @ColumnInfo(name = SPACE_SHUTTLE_DS_FIELD)
     var DS: Int,
     @ColumnInfo(name = SPACE_SHUTTLE_DAMAGE_FIELD)
-    var Damage: Int = SPACE_SHUTTLE_DEFAULT_DAMAGE_VALUE
+    var damage: Int = SPACE_SHUTTLE_DEFAULT_DAMAGE_VALUE
 )

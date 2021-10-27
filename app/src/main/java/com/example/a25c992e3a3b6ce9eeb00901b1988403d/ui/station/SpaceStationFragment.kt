@@ -11,9 +11,16 @@ import com.example.a25c992e3a3b6ce9eeb00901b1988403d.base.helper.UIExtension.get
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.database.entity.SpaceStation
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.databinding.FragmentSpaceStationBinding
 import com.example.a25c992e3a3b6ce9eeb00901b1988403d.vm.station.SpaceStationViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.*
 import kotlin.collections.ArrayList
+import android.widget.Toast
+
+import com.example.a25c992e3a3b6ce9eeb00901b1988403d.MainActivity
+
+
+
 
 @AndroidEntryPoint
 class SpaceStationFragment : BaseFragment<FragmentSpaceStationBinding, SpaceStationViewModel>() {
@@ -112,15 +119,29 @@ class SpaceStationFragment : BaseFragment<FragmentSpaceStationBinding, SpaceStat
         return mBinding.rvSpaceStation.getCurrentPosition()
     }
 
+    private fun showError(message:String){
+        val snackbar = Snackbar.make(mBinding.mainLayout, message, Snackbar.LENGTH_LONG)
+        snackbar.show()
+    }
+
     private fun initObservable() {
-        mViewModel.spaceStation.observe(viewLifecycleOwner) {
-            if (it.isNotEmpty()) {
-                mBinding.clStationList.visibility = View.VISIBLE
-                initRecyclerAdapter(it)
+        mViewModel.apply {
+            spaceStation.observe(viewLifecycleOwner) {
+                if (it.isNotEmpty()) {
+                    mBinding.clStationList.visibility = View.VISIBLE
+                    initRecyclerAdapter(it)
+                }
             }
-        }
-        mViewModel.changeStation.observe(viewLifecycleOwner) {
-            adapter.notifyItemChanged(getCurrentPosition())
+
+            changeStation.observe(viewLifecycleOwner) {
+                adapter.notifyItemChanged(getCurrentPosition())
+            }
+
+            errorState.observe(viewLifecycleOwner){
+                if(it.isNotEmpty())
+                    showError(it)
+            }
+
         }
     }
 
