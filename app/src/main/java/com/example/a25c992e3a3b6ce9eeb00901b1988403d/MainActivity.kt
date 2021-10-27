@@ -42,8 +42,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initObservable() {
-        mViewModel.spaceShuttleCount.observe(this) {
-            if (it == 0L)
+        mViewModel.hasASpaceShuttle.observe(this) {
+            if (!it)
                 changeNavigationStartDestination(R.id.createSpaceShuttleFragment)
             else
                 changeNavigationStartDestination(R.id.stationMainFragment)

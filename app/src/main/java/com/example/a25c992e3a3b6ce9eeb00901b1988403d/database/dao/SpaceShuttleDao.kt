@@ -12,6 +12,6 @@ interface SpaceShuttleDao : IDatabaseOperation<SpaceShuttle> {
     @Query("select * from SpaceShuttle")
     suspend fun getAllList():List<SpaceShuttle>
 
-    @Query("select count(*) from SpaceShuttle")
-    suspend fun getAllCount():Long
+    @Query("select count(*) > 0 from SpaceShuttle")
+    suspend fun hasASpaceShuttle():Boolean
 }

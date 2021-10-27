@@ -11,17 +11,15 @@ import javax.inject.Inject
 class MainActivityViewModel@Inject constructor(repository: BaseRepository) :
     BaseViewModel(repository) {
 
+    override fun init() {
 
-    val spaceShuttleCount: MutableLiveData<Long> = MutableLiveData()
+    }
+
+    val hasASpaceShuttle: MutableLiveData<Boolean> = MutableLiveData()
 
     fun getSpaceShuttleCount() {
         runBlocking {
-            val result = database.spaceShuttleDao().getAllCount()
-            spaceShuttleCount.value = result
+            hasASpaceShuttle.value = database.spaceShuttleDao().hasASpaceShuttle()
         }
-    }
-
-    override fun init() {
-
     }
 }
