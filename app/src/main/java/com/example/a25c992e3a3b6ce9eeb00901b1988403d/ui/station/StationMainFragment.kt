@@ -30,7 +30,10 @@ class StationMainFragment : BaseFragment<FragmentStationMainBinding, StationMain
     private fun initObservable() {
         mViewModel.apply {
             spaceStationIsLoad.observe(viewLifecycleOwner) {
-                showStationLoadOrContinue()
+                if(it)
+                    showStationLoadOrContinue()
+                else
+                    mViewModel.getSpaceStation()
             }
 
             spaceStationSaved.observe(viewLifecycleOwner) {
